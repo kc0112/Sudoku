@@ -1,4 +1,4 @@
-### Sudoku
+### Sudoku:
 <p> In this Sudoku Web Application we implemented <b>Backtracking</b>.<br><br>
 To build this game we used the JavaScript and Bootstrap.<br><br>
 <b>Logics</b> and <b>Concepts</b> implemented in this game:<br></p>
