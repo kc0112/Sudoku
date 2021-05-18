@@ -36,6 +36,18 @@ for (var i = 0; i < 9; i++) {
     }
 }
 
+function isEmpty() {
+    for (var i = 0; i < 9; i++) {
+        for (var j = 0; j < 9; j++) {
+            arr[i][j] = document.getElementById(i * 9 + j);
+            if (arr[i][j].innerText != '') {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 function initializeTemp(temp) {
 
     for (var i = 0; i < 9; i++) {
@@ -82,6 +94,7 @@ function resetColor() {
     }
 }
 
+
 var board = [[], [], [], [], [], [], [], [], []]
 
 
@@ -105,7 +118,7 @@ button.onclick = function () {
     var xhrRequest = new XMLHttpRequest()
     xhrRequest.onload = function () {
         var response = JSON.parse(xhrRequest.response)
-        console.log(response)
+        // console.log(response)
         initializeTemp(temp)
         resetColor()
 
@@ -143,7 +156,7 @@ function isSafe(board, r, c, no) {
 function solveSudokuHelper(board, r, c,flag) {
     // console.log("1234")
     if (r == 9) {
-        console.log("flag")
+        // console.log("flag")
         if (flag == true) {
             changeBoard(board);
         }
@@ -178,15 +191,23 @@ function solveSudoku(board) {
     solveSudokuHelper(board, 0, 0, true);
 }
 solve.onclick = function () {
+    if (isEmpty(board)) {
+        alert("Empty Field ! Please click on 'GET NEW PUZZLE'");
+        return;
+    }
     solveSudoku(board);
 }
 checkBtn.onclick = function () {
+    if (isEmpty(board)) {
+        alert("Empty Field ! Please click on 'GET NEW PUZZLE'");
+        return;
+    }
     solveSudokuHelper(board, 0, 0, false);
     for (var i = 0; i < 9; i++) {
         for (var j = 0; j < 9; j++) {
             let cell = arr[i][j].innerText;
             if (cell != board[i][j]) {
-                console.log("Wrong answer");
+                // console.log("Wrong answer");
                 let modal_container = document.querySelector(".modal_container");
                 if (modal_container == null) {
                     modal_container = document.createElement("div");
@@ -201,7 +222,7 @@ checkBtn.onclick = function () {
             }
         }
     }
-    console.log("Correct answer");
+    // console.log("Correct answer");
     let modal_container = document.querySelector(".modal_container");
     if (modal_container == null) {
         modal_container = document.createElement("div");
