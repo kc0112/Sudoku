@@ -10,5 +10,5 @@ To build this game we used the JavaScript and Bootstrap.<br><br>
 </ul>
     
 ###### This is how the game looks.
-<img src="s1.jpg" alt="Trulli" width="700" height="500"><br><br><br>
+
 ![](https://media.giphy.com/media/uqZMsZjPPMYE2RCQgE/giphy.gif)
